@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<!-- Game page -->
+<html lang="en">
+    <head>
+        <meta charset = "Times New Roman">
+        <link rel="stylesheet" href="style.css">
+        <title> Wordle - The New York Times </title>
+        <script src="script.js" defer></script>
+    </head>
+
+    <body style="background-color:white;">
+        <header class="top-section">
+            <!-- 3 lines menu button for other new york times games -->
+            <div class="three-lines-container">
+                <button class="three-lines-btn" aria-label="Toggle Navigation">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </button>
+            </div>
+             <div class="header-center">
+                <!-- hint icon -->
+                <a id="hints-link" class="nav-icon-btn" aria-label="Hints" target="_blank">
+                <svg viewBox="0 0 24 24" width="38" height="38" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A5.5 5.5 0 0 0 7.5 8c0 1.3.5 2.6 1.5 3.5.8.8 1.3 1.5 1.5 2.5"></path>
+                <path d="M9 18h6"></path>
+                <path d="M10 22h4"></path>
+                 </svg>
+                </a> 
+                <!-- stats button-->
+                 <button class="nav-icon-btn" aria-label="Statistics" onclick="stats()">
+                    <svg viewBox="0 0 24 24" width="38" height="38" stroke="currentColor" stroke-width="2" fill="none"><rect x="18" y="3" width="4" height="18"></rect><rect x="11" y="8" width="4" height="13"></rect><rect x="4" y="14" width="4" height="7"></rect></svg>
+                 </button>
+
+                 <!-- wrapper container -->
+                  <div class="dropdown">
+                 <!-- help button -->
+                  <button class="nav-icon-btn dropdown-btn" aria-label="Help" onclick="toggleDropdown()">
+                   <svg viewBox="0 0 24 24" width="38" height="38" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line>
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg> 
+                  </button>
+                  <!-- dropdown menu -->
+                  <div id="helpDropdown" class="dropdown-content">
+                    <a href="#" onclick="openHowToPlay(event)">How to Play</a>
+                    <a href="https://www.nytimes.com/2022/02/10/crosswords/best-wordle-tips.html" target="_blank" rel="noopener noreferrer">Tips and Tricks <span class="arrow">↗</span></a>
+                    <a href="https://www.nytimes.com/2023/08/01/crosswords/how-to-talk-about-wordle.html" target="_blank" rel="noopener noreferrer">Glossary <span class="arrow">↗</span></a>
+                    <a href="https://iteratehq.com/nytimes/67473b2b897cab6fd7d95bca" target="_blank" rel="noopener noreferrer">Feedback <span class="arrow">↗</span></a>
+                    <a href="mailto:nytgames@nytimes.com Report - [Wordle Bug Report]&body=Describe the bug:%0D%0A%0D%0AExpected behavior:%0D%0A%0D%0ASteps to reproduce:%0D%0A1.%0D%0A2.%0D%0A3.">Report a Bug <span class="arrow">↗</span></a>
+                    <a href="https://help.nytimes.com/24611727334932-Wordle" target="_blank" ref="noopener noreferrer">Questions? <span class="arrow">↗</span></a>
+                  </div>
+                  </div>
+
+                 <!-- settings -->
+                  <button class="nav-icon-btn" aria-label="Settings">
+                    <svg viewBox="0 0 24 24" width="38" height="38" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                  </button> 
+             </div>
+
+             <!-- subscription promo -->
+              <div class="right-container">
+                <button class="promo-btn" onclick="promo()">75% off</button>
+              </div>
+        </header>
+
+        <!-- stats window, no login -->
+        <dialog id="statsWindowNoLogin">
+            <!-- x close button -->
+             <button class="close-x-btn" onclick="closeStatsNoLogin()" aria-label="Close dialog">&times;</button>
+            
+             <!-- contents of statistics window -->
+              <div class="dialog-content">
+             <h3 style="font-size: 48px;">Statistics</h3>
+             <img class="logo-container" src="wordleStats.png" alt="Wordle statistics image">
+            <p style="font-size: 32px; text-align: center; font-weight: bold;">Track your stats<br>and view badges.</p>
+            <p style="text-align: center;">Access your Wordle badges, win<br>percentage and more with a free account.</p>
+            <a href="login.html">
+                <button class="cta-btn">Create an account</button>
+            </a>
+              </div>
+        </dialog>
+
+        <!-- how to play -->
+         <dialog id="howToPlay">
+            <!-- x close button -->
+             <button class="close-x-btn" onclick="closeHTP()" aria-label="Close dialog">&times;</button>
+
+             <header class="htp-header">
+             <!-- contents-->
+                <h3 style="font-size: 40px; margin: 0;"><b>How To Play</b></h3>
+                <p style="font-size: 32px; margin-top: 0;">Guess the Wordle in 6 tries.</p>
+                <ul style="font-size: 20px;">
+                    <li>Each guess must be a valid 5-letter word.</li>
+                    <li>The color of the tiles will change to show how close your<br>guess was to the word.</li>
+                </ul>
+                <p style="font-weight: bold; font-size: 20px;">Examples</p>
+
+                <!-- letter in correct spot -->
+                 <div class="word-row">
+                    <span class="letter-box correct flip-in">W</span>
+                    <span class="letter-box">O</span>
+                    <span class="letter-box">R</span>
+                    <span class="letter-box">D</span>
+                    <span class="letter-box">Y</span>
+                 </div>
+                 <p style="font-size: 20px;"><b>W</b> is in the word and in the correct spot.</p>
+
+                 <!-- letter is in the word but wrong spot -->
+                  <div class="word-row">
+                    <span class="letter-box">L</span>
+                    <span class="letter-box present flip-in">I</span>
+                    <span class="letter-box">G</span>
+                    <span class="letter-box">H</span>
+                    <span class="letter-box">T</span>
+                  </div>
+                  <p style="font-size: 20px;"><b>I</b> is in the word but in the wrong spot.</p>
+
+                  <!-- letter isn't in word -->
+                   <div class="word-row">
+                    <span class="letter-box">R</span>
+                    <span class="letter-box">O</span>
+                    <span class="letter-box">G</span>
+                    <span class="letter-box wrong flip-in">U</span>
+                    <span class="letter-box">E</span>
+                   </div>
+                   <p style="font-size: 20px;"><b>U</b> is not in the word in any spot.</p>
+             </header>
+             
+             <header class="htp-header">
+             <div class="media-container">
+             <img width="65px;" src="howToPlayIcon.png" alt="Statistics icon">
+             <p><a href="login.html">Log in or create a free NYT account</a> to link your stats.</p>
+             </div>
+             </header>
+
+             <p style="font-size: 20px;">A new puzzle is released daily at midnight. If you haven't already, you can <a href="https://www.nytimes.com/newsletters/signup/NTWO">sign up</a> for our daily reminder email.</p>
+         </dialog>
+
+        <script>
+            /* promo page */
+            function promo() {
+                window.open("https://www.nytimes.com/subscription/games?campaignId=8YU98", "_self");
+            }
+
+            /* condition for statistics screen
+            change later to match for if user is logged in */
+            function stats() {
+                const userLoggedIn = true;
+                if (userLoggedIn === true) {
+                    showStatsNoLogin();
+                }
+            }
+
+            /* helper functions to open/close stats popup window
+            showStatsNoLogin() function */
+            function showStatsNoLogin() {
+                const modal = document.getElementById("statsWindowNoLogin");
+                modal.showModal(); // opens dialogue in center of screen
+            }
+            
+            /* closing popup function */
+            function closeStatsNoLogin() {
+                const modal = document.getElementById("statsWindowNoLogin");
+                modal.close();
+            }
+
+            /* opening dropdown from help */
+            function toggleDropdown() {
+                document.getElementById("helpDropdown").classList.toggle("show");
+            }
+
+            /* close how to play window */
+            function closeHTP() {
+                const modal = document.getElementById("howToPlay");
+                modal.close();
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!-- Cover page, before wordler plays the game and isn't logged in -->
+<html lang="en">
+    <head>
+        <meta charset = "Franklin Gothic">
+        <title class="centered-text"> Wordle - The New York Times </title>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
+    </head>
+    <body class="centered-layout" style="background-color:#E3E3E1;">
+        <div>
+        <img class="logo-container" src="wordleLogo.png" alt="Wordle logo">
+        <h1 class="wordle-title"> Wordle </h1>
+        <p class="centered-text" style="font-size: 35px;"> Get 6 chances to guess <br>a 5-letter word. </p>
+
+        <!-- buttons -->
+         <div class="button-container">
+            <button id="nytsub-btn"class="menu-btn" onclick="subscribe()"> Subscribe</button>
+            <button class="menu-btn" onclick="login()"> Log in</button>
+            <button class="play-btn" onclick="play()"> Play</button>
+         </div>
+    
+        <!-- bottom text -->
+         <div>
+            <p id="date" class="cover-info">
+                <!-- date created in javascript -->
+            </p>
+            <p id="number" class="cover-info">
+                <!-- number created in javascript -->
+            </p>
+            <!-- for some reason the recreation text doesn't match with above info so i manually put in the css -->
+            <p style="text-align: center; font-family: Franklin Gothic; font-size: 18px;">
+                Recreation by Vy Nguyen
+            </p>
+         </div> 
+        </div>
+
+    <script>
+        /* constants for buttons */
+        const subBtn = document.getElementById("nytsub-btn");
+        /* subscribe function */
+        function subscribe() {
+            window.open("https://www.nytimes.com/subscription/games?campaignId=8FHQF", "_self");
+        }
+        /* login function */
+        function login() {
+        window.open("login.html", "_self");
+        }
+        /* play function */
+        function play() {
+            window.open("game.html", "_self");
+        }
+    </script>
+
+    </body>
+</html>

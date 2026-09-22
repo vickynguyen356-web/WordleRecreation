@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!-- Login page -->
+<html lang="en">
+    <head>
+        <meta charset = "Times New Roman">
+        <link rel="stylesheet" href="style.css">
+        <script src="login.js" defer></script>
+        <title> Enter email - The New York Times </title>
+    </head>
+
+    <body style="font-family: Franklin Gothic;" style="background-color: white;">
+        <div>
+        <h1 style="text-align: center;"> Log in or create an account </h1>
+        <form id="loginForm">
+            <div class="email-box">
+                <div class="label-row">
+                    <!-- email section -->
+                    <label for="email"> Email address </label>
+                    <button id="edit-email-btn" type="button" class="hidden"> Edit </button>
+                </div>
+
+                <input type="text" id="email" name="email">
+
+                <!-- error message -->
+                <div id="errorContainer"></div>
+
+                <!-- password section (hidden by default)-->
+                 <div id="password-container" class="hidden">
+                    <label for="password-input"> Password </label>
+                    <input type="password" id="password-input">
+                 </div>
+            </div>
+        
+            <!-- continue button -->
+        <div class="button-container">
+            <button id="continue-btn" type="submit" class="cont-btn"> Continue </button>
+        </div>
+        
+        </form>
+
+        </div>
+    </body>
+</html>
